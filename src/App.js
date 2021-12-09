@@ -107,6 +107,13 @@ function App() {
         setOpenSignIn(false);
     }
 
+    const signOut = (event) => {
+        setAuthToken(null)
+        setAuthTokenType(null)
+        setUserId('')
+        setUsername('')
+    }
+
 
     return (
         <div className='app'>
@@ -146,11 +153,16 @@ function App() {
                    src='https://images.megapixl.com/5575/55753991.jpg'
                    alt='ProStoGram'
               />
-              <div>
-                  <Button
-                      onClick = {() => setOpenSignIn(true)}>Login</Button>
-                  <Button onClick = {() => setOpenSignUp(true)}>Signup</Button>
-              </div>
+
+              {authToken ? (
+                  <Button onClick = {() => signOut()}>Logout</Button>
+                  ) : (
+                      <div>
+                          <Button onClick = {() => setOpenSignIn(true)}>Login</Button>
+                          <Button onClick = {() => setOpenSignUp(true)}>Signup</Button>
+                      </div>
+                  )
+              }
           </div>
 
           <div className='app_posts'>
