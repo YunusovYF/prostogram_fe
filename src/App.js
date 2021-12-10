@@ -265,6 +265,8 @@ function App() {
                     posts.map(post => (
                         <Post
                             post = {post}
+                            authToken={authToken}
+                            authTokenType={authTokenType}
                         />
                     ))
                 }
