@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import './App.css';
-import Post from './Post'
+import Post from './Post';
 import {Button, Modal, makeStyles, Input} from "@material-ui/core";
+import ImageUpload from './ImageUpload';
 
-const BASE_URL = 'http://localhost:8000/'
+const BASE_URL = 'http://localhost:8000/';
 
 function getModalStyle() {
     const top = 50;
@@ -268,6 +269,15 @@ function App() {
                     ))
                 }
             </div>
+
+            {
+                authToken? (
+                    <ImageUpload
+                    />
+                ) : (
+                    <h3>You need login to upload image</h3>
+                )
+            }
         </div>
 
     );
